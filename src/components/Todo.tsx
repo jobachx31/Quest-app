@@ -50,7 +50,7 @@ const Todo = () => {
 
   return (
     <div
-      className="bg-white place-self-center sm:w-[30rem] md:w-[30rem] lg:w-[40rem]
+      className="bg-white place-self-center w-11/12 sm:w-[20rem] md:w-[30rem] lg:w-[40rem]
   flex flex-col p-7 min-h-[550px] rounded-2xl text-black"
     >
       <div className="flex items-center mt-7 gap-2">
