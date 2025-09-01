@@ -50,8 +50,8 @@ const Todo = () => {
 
   return (
     <div
-      className="bg-white place-self-center w-11/12 max-w-md 
-      flex flex-col p-7 min-h-[550px] rounded-2xl text-black"
+      className="bg-white place-self-center w-10/12 sm:w-11/12 md:w-6/12 lg:w-4/12
+  flex flex-col p-7 min-h-[550px] rounded-2xl text-black"
     >
       <div className="flex items-center mt-7 gap-2">
         <HistoryEduRoundedIcon className=" mt-2 font-semibold" />
