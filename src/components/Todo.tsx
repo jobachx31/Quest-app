@@ -50,8 +50,8 @@ const Todo = () => {
 
   return (
     <div
-      className="bg-white place-self-center w-11/12 sm:max-w-[20rem] md:max-w-[30rem] lg:max-w-[40rem]
-  flex flex-col p-7 min-h-[550px] rounded-2xl text-black"
+      className="bg-white place-self-center w-10/12 max-w-[500px]
+  flex flex-col p-7 min-h-[550px] rounded-2xl text-black shadow-inner shadow-black"
     >
       <div className="flex items-center mt-7 gap-2">
         <HistoryEduRoundedIcon className=" mt-2 font-semibold" />
@@ -62,8 +62,8 @@ const Todo = () => {
           }}
           className={
             todoList.length > 0
-              ? "ml-auto cursor-pointer text-red-400"
-              : "ml-auto cursor-pointer text-red-400 invisible"
+              ? "ml-auto cursor-pointer text-neutral-600"
+              : "invisible"
           }
         />
       </div>
