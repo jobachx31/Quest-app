@@ -37,7 +37,7 @@ const TodoItems = (Props: TodoListProps) => {
 
       <div className="w-3.5">
         <DeleteRoundedIcon
-          className="cursor-pointer w-3.5"
+          className="cursor-pointer w-3.5 duration-3000 ease-in-out hover:text-red-400"
           onClick={() => {
             Props.deleteTodo(Props.id);
           }}

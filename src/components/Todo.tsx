@@ -62,7 +62,7 @@ const Todo = () => {
           }}
           className={
             todoList.length > 0
-              ? "ml-auto cursor-pointer text-neutral-600"
+              ? "ml-auto cursor-pointer text-neutral-600 duration-300 ease-in-out hover:text-red-400"
               : "invisible"
           }
         />
@@ -85,7 +85,7 @@ const Todo = () => {
             addTodo();
             inputRef.current?.focus();
           }}
-          className="border-none rounded-full bg-range-600 w-32 h-14
+          className="border-none rounded-full bg-range-600 w-28 duration-200 ease-in-out hover:w-32 h-18
              text-white text-l font-medium cursor-pointer bg-neutral-800"
         >
           Add
