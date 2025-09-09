@@ -53,8 +53,8 @@ const Todo = () => {
       className="bg-white place-self-center w-10/12 max-w-[500px]
   flex flex-col p-7 min-h-[550px] rounded-2xl text-black shadow-inner shadow-black"
     >
-      <div className="flex items-center mt-7 gap-2">
-        <HistoryEduRoundedIcon className=" mt-2 font-semibold" />
+      <div className="flex items-center justify-center mt-7 gap-2">
+        {/* <HistoryEduRoundedIcon className=" mt-2 font-semibold" /> */}
         <h1 className="text-4xl font-bold text-neutral-800">Quests</h1>
         <CancelIcon
           onClick={() => {
@@ -70,27 +70,27 @@ const Todo = () => {
 
       {/* input field */}
       <div className="flex items-center my-7 bg-gray-200 rounded-full">
-        <input
-          ref={inputRef}
-          className="bg-transparent border-0 outline-none flex-1 h-14 pl-6 pr-2
-             placeholder:text-slate-600"
-          type="text"
-          placeholder="Add a Quest..."
-          onKeyDown={(e) => {
-            e.key === "Enter" && addTodo();
-          }}
-        />
-        <button
-          onClick={() => {
-            addTodo();
-            inputRef.current?.focus();
-          }}
-          className="border-none rounded-full bg-range-600 w-28 duration-200 ease-in-out hover:w-32 h-18
-             text-white text-l font-medium cursor-pointer bg-neutral-800"
-        >
-          Add
-          {/* hello */}
-        </button>
+          <input
+            ref={inputRef}
+            className="bg-transparent border-0 outline-none flex-[2] h-14 pl-6 pr-2
+                 placeholder:text-slate-600 rounded-l-full"
+            type="text"
+            placeholder="Add a Quest..."
+            onKeyDown={(e) => {
+              e.key === "Enter" && addTodo();
+            }}
+          />
+          <button
+            onClick={() => {
+              addTodo();
+              inputRef.current?.focus();
+            }}
+            className="peer flex-[1] h-14 rounded-full bg-neutral-800
+                 text-white text-lg font-medium cursor-pointer
+                 duration-200 ease-in-out hover:bg-neutral-700"
+          >
+            Add
+          </button>
       </div>
 
       {/* todo items */}
