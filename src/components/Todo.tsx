@@ -74,7 +74,7 @@ const Todo = () => {
       initial="hidden"
       animate="visible"
       className="bg-white mx-auto my-auto w-11/12 max-w-[500px]
-  flex flex-col p-7 min-h-[550px] rounded-2xl text-black shadow-inner shadow-black"
+  flex flex-col p-7 min-h-[550px] rounded-4xl text-black"
     >
       <motion.div
         variants={childVariants}
