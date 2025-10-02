@@ -49,12 +49,37 @@ const Todo = () => {
     inputRef.current?.focus();
   }, [todoList]);
 
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div
+    <motion.div
+      variants={cardVariants}
+      initial="hidden"
+      animate="visible"
       className="bg-white mx-auto my-auto w-11/12 max-w-[500px]
-  flex flex-col p-7 min-h-[550px] rounded-4xl text-black"
+  flex flex-col p-7 min-h-[550px] rounded-2xl text-black shadow-inner shadow-black"
     >
-      <div className="relative flex items-center justify-center mt-7 gap-2">
+      <motion.div
+        variants={childVariants}
+        className="relative flex items-center justify-center mt-7 gap-2"
+      >
         {/* <HistoryEduRoundedIcon className=" mt-2 font-semibold" /> */}
         <h1 className="text-4xl font-bold text-neutral-800">Quests</h1>
         <AnimatePresence>
@@ -72,10 +97,13 @@ const Todo = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
+      </motion.div>
 
       {/* input field */}
-      <div className="flex items-center my-7 gap-2">
+      <motion.div
+        variants={childVariants}
+        className="flex items-center my-7 gap-2"
+      >
           <input
             ref={inputRef}
             className="bg-gray-200 border-0 outline-none flex-1 h-14 pl-6 pr-2
@@ -97,10 +125,13 @@ const Todo = () => {
           >
             +
           </button>
-      </div>
+      </motion.div>
 
       {/* todo items */}
-      <div className="flex flex-col mt-4">
+      <motion.div
+        variants={childVariants}
+        className="flex flex-col mt-4"
+      >
         <AnimatePresence>
           {todoList.map((item) => (
             <TodoItems
@@ -113,7 +144,7 @@ const Todo = () => {
             />
           ))}
         </AnimatePresence>
-      </div>
+      </motion.div>
 
       {/* Confirmation Modal */}
       <AnimatePresence>
@@ -157,7 +188,7 @@ const Todo = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 };
 
