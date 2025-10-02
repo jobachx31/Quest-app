@@ -1,7 +1,7 @@
 import TodoItems from "./TodoItems";
 import { useEffect, useRef, useState } from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 const Todo = () => {
   interface Todo {
@@ -49,7 +49,7 @@ const Todo = () => {
     inputRef.current?.focus();
   }, [todoList]);
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95 },
     visible: {
       opacity: 1,
