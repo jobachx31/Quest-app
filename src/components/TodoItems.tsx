@@ -1,6 +1,7 @@
 import RadioButtonUncheckedRoundedIcon from "@mui/icons-material/RadioButtonUncheckedRounded";
 import RadioButtonCheckedRoundedIcon from "@mui/icons-material/RadioButtonCheckedRounded";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
+import { motion } from "framer-motion";
 
 interface TodoListProps {
   text: string;
@@ -12,38 +13,46 @@ interface TodoListProps {
 
 const TodoItems = (Props: TodoListProps) => {
   return (
-    <div
-      className="flex items-center my-3 gap-2"
-      onClick={() => {
-        Props.toggleComplete(Props.id);
-      }}
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, x: -20, transition: { duration: 0.2 } }}
+      layout
+      className="group flex items-center my-3 gap-2"
     >
-      <div className="flex flex-1 items-center cursor-pointer">
+      <div
+        className="flex flex-1 items-center cursor-pointer"
+        onClick={() => {
+          Props.toggleComplete(Props.id);
+        }}
+      >
         {Props.isComplete === true ? (
           <RadioButtonCheckedRoundedIcon className="w-7 text-neutral-400" />
         ) : (
           <RadioButtonUncheckedRoundedIcon className="w-7 text-neutral-800" />
         )}
         <p
-          className={
-            Props.isComplete === true
-              ? "ml-4 text-neutral-400 font-medium text-lg"
-              : "ml-4 text-neutral-800 font-medium text-lg"
-          }
+          className={`ml-4 font-medium text-lg transition-colors duration-200 ${
+            Props.isComplete
+              ? "text-neutral-400 line-through"
+              : "text-neutral-800"
+          }`}
         >
           {Props.text}
         </p>
       </div>
 
-      <div className="w-3.5">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="w-14 h-full flex items-center justify-center shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      >
         <DeleteRoundedIcon
-          className="cursor-pointer w-3.5 duration-3000 ease-in-out hover:text-red-400"
-          onClick={() => {
-            Props.deleteTodo(Props.id);
-          }}
+          className="cursor-pointer text-xl duration-300 ease-in-out hover:text-red-400"
+          onClick={() => Props.deleteTodo(Props.id)}
         />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
