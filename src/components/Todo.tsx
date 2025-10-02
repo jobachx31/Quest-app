@@ -1,4 +1,3 @@
-import HistoryEduRoundedIcon from "@mui/icons-material/HistoryEduRounded";
 import TodoItems from "./TodoItems";
 import { useEffect, useRef, useState } from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
@@ -50,7 +49,7 @@ const Todo = () => {
 
   return (
     <div
-      className="bg-white place-self-center w-10/12 max-w-[500px]
+      className="bg-white mx-auto my-auto w-11/12 max-w-[500px]
   flex flex-col p-7 min-h-[550px] rounded-2xl text-black shadow-inner shadow-black"
     >
       <div className="flex items-center justify-center mt-7 gap-2">
@@ -69,11 +68,11 @@ const Todo = () => {
       </div>
 
       {/* input field */}
-      <div className="flex items-center my-7 bg-gray-200 rounded-full">
+      <div className="flex items-center my-7 gap-2">
           <input
             ref={inputRef}
-            className="bg-transparent border-0 outline-none flex-[2] h-14 pl-6 pr-2
-                 placeholder:text-slate-600 rounded-l-full"
+            className="bg-gray-200 border-0 outline-none flex-1 h-14 pl-6 pr-2
+                 placeholder:text-slate-600 rounded-full"
             type="text"
             placeholder="Add a Quest..."
             onKeyDown={(e) => {
@@ -85,11 +84,11 @@ const Todo = () => {
               addTodo();
               inputRef.current?.focus();
             }}
-            className="peer flex-[1] h-14 rounded-full bg-neutral-800
-                 text-white text-lg font-medium cursor-pointer
+            className="peer grid place-items-center shrink-0 w-14 h-14 rounded-full bg-neutral-800
+                 text-white text-3xl font-light cursor-pointer
                  duration-200 ease-in-out hover:bg-neutral-700"
           >
-            Add
+            +
           </button>
       </div>
 
